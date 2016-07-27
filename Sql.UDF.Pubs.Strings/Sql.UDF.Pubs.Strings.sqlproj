@@ -43,7 +43,7 @@
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
     <Name>Sql.UDF.Pubs.Strings</Name>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{c49a208c-9128-4915-afb9-57b27737a665}</ProjectGuid>
+    <ProjectGuid>{92cf953d-753f-4a17-936e-939bdfac87b3}</ProjectGuid>
     <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
     <GenerateDatabaseFile>False</GenerateDatabaseFile>
     <GenerateCreateScript>False</GenerateCreateScript>

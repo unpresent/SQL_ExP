@@ -27,7 +27,7 @@
     <OldToolsVersion>4.0</OldToolsVersion>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
     <Name>TPrivileges</Name>
-    <ProjectVersion>4.0</ProjectVersion>
+    <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{14da8542-177b-482f-9f26-758b782ee6dc}</ProjectGuid>
     <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
     <GenerateDatabaseFile>False</GenerateDatabaseFile>
@@ -66,7 +66,8 @@
   <PropertyGroup>
     <RootNamespace>TPrivileges</RootNamespace>
   </PropertyGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" Condition="'$(SQLDBExtensionsRefPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" Condition="'$(SQLDBExtensionsRefPath)' == ''" />
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />

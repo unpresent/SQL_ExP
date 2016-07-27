@@ -258,7 +258,7 @@ public struct TPrivileges: INullable, IBinarySerialize
 
     object LBytes = LCommand.ExecuteScalar();
 
-    if(LBytes is Byte[])
+    if (LBytes is Byte[])
     {
       System.IO.MemoryStream s = new System.IO.MemoryStream((Byte[])LBytes);
       System.IO.BinaryReader r = new System.IO.BinaryReader(s);

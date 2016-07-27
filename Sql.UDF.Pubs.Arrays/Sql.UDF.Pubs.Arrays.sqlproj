@@ -43,7 +43,7 @@
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
     <Name>Sql.UDF.Pubs.Arrays</Name>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{c49a208c-9128-4915-afb9-57b27737a665}</ProjectGuid>
+    <ProjectGuid>{e71c5940-1af0-49bd-9565-1e1e725c1ef4}</ProjectGuid>
     <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
     <GenerateDatabaseFile>False</GenerateDatabaseFile>
     <GenerateCreateScript>False</GenerateCreateScript>

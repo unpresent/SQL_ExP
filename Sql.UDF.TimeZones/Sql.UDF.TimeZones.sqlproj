@@ -2,48 +2,36 @@
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
     <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
-    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
     <PostConversionRemoveFromScc>
     </PostConversionRemoveFromScc>
     <PostConversionAddToScc>
     </PostConversionAddToScc>
     <TargetDatabaseSet>True</TargetDatabaseSet>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>
+    </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <OutputType>Database</OutputType>
     <NoStandardLibraries>false</NoStandardLibraries>
-    <AssemblyName>UDF.Pubs</AssemblyName>
+    <AssemblyName>UDF.TimeZones</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <PermissionSet>UNSAFE</PermissionSet>
+    <ConnectionString>
+    </ConnectionString>
     <FileUpgradeFlags>40</FileUpgradeFlags>
+    <UpgradeBackupLocation>D:\Work\ExtendedStoredProcedures\Backup2\</UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
-    <RootNamespace>UDF.Pubs</RootNamespace>
-    <UpgradeBackupLocation>D:\Work\Projects\Extended Stored Procedures\Sql.UDF.Pubs\Backup1\</UpgradeBackupLocation>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
-    <Name>Sql.UDF.Pubs</Name>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <Name>Sql.UDF.TimeZones</Name>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{dd3956ac-f594-404b-809a-a64227f2d25a}</ProjectGuid>
+    <ProjectGuid>{ab72d98b-a2d0-4cf2-b53d-a057d96bfcda}</ProjectGuid>
     <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
     <GenerateDatabaseFile>False</GenerateDatabaseFile>
     <GenerateCreateScript>False</GenerateCreateScript>
@@ -62,7 +50,6 @@
     <DefineConstants>
     </DefineConstants>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
@@ -75,30 +62,36 @@
     <DefineConstants>
     </DefineConstants>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <SqlTargetName>UDF</SqlTargetName>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>UDF.TimeZones</RootNamespace>
   </PropertyGroup>
   <Import Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" Condition="'$(SQLDBExtensionsRefPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" Condition="'$(SQLDBExtensionsRefPath)' == ''" />
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    <Reference Include="PublicDomain.ZoneInfo">
+      <HintPath>obj\sqlclr\PublicDomain.ZoneInfo.dll</HintPath>
+      <Private>False</Private>
+      <SubType>SQLCLR</SubType>
     </Reference>
+    <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.XML" />
-    <Reference Include="UDF.Pubs.Strings">
-      <HintPath>..\Sql.UDF.Pubs.Strings\bin\Release\UDF.Pubs.Strings.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Functions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sql.cs" />
-    <Compile Include="Common.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Test Scripts\" />
+    <Folder Include="Properties\" />
+    <Folder Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -107,41 +100,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-    <Folder Include="Scripts\" />
-  </ItemGroup>
-  <PropertyGroup>
-    <PreBuildEvent>
-    </PreBuildEvent>
-    <PostBuildEvent>
-    </PostBuildEvent>
-  </PropertyGroup>
 </Project>

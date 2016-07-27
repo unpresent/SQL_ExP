@@ -10,9 +10,8 @@
     <OutputType>Library</OutputType>
     <NoStandardLibraries>false</NoStandardLibraries>
     <AssemblyName>UDF.XmlParams</AssemblyName>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <OldToolsVersion>3.5</OldToolsVersion>
+    <FileUpgradeFlags>40</FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
     <RootNamespace>Sql.UDF.XmlParams</RootNamespace>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
